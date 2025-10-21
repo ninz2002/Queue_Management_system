@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:layout_margin="8dp"
+    android:clickable="true"
+    android:focusable="true">
+    <!--android:background="@drawable/item_doctor_background"-->
+
+    <!-- Doctor Name -->
+    <TextView
+        android:id="@+id/txtDoctorName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dr. John Doe"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#212121" />
+
+    <!-- Department -->
+    <TextView
+        android:id="@+id/txtDepartment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cardiology"
+        android:textSize="14sp"
+        android:textColor="#1976D2"
+        android:layout_marginTop="4dp" />
+
+    <!-- Queue Info Section -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="12dp"
+        android:gravity="center_vertical">
+
+        <!-- Queue Count -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Queue: "
+                android:textSize="12sp"
+                android:textColor="#757575" />
+
+            <TextView
+                android:id="@+id/txtQueueCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5 patients"
+                android:textSize="12sp"
+                android:textColor="#757575"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <!-- Join Button -->
+        <TextView
+            android:id="@+id/btnJoinQueue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="View Details →"
+            android:textSize="14sp"
+            android:textColor="#1976D2"
+            android:textStyle="bold"
+            android:padding="8dp" />
+
+    </LinearLayout>
+
+    <!-- Divider Line -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#E0E0E0"
+        android:layout_marginTop="12dp" />
+
+</LinearLayout>
