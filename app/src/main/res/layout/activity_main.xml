@@ -7,6 +7,7 @@
     tools:context=".MainActivity"
     android:background="@drawable/button_background">
 
+    <!-- Header Section with Patient Info and Logout -->
     <LinearLayout
         android:id="@+id/headerSection"
         android:layout_width="0dp"
@@ -18,21 +19,72 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <!-- Top Row: Welcome Text and Logout Button -->
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Welcome to"
-            android:textColor="#BBDEFB"
-            android:textSize="16sp" />
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
 
+            <!-- Left Side: Welcome Text -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Welcome to"
+                    android:textColor="#BBDEFB"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="QueueFlow"
+                    android:textColor="#FFFFFF"
+                    android:textSize="28sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="4dp" />
+
+            </LinearLayout>
+
+            <!-- Right Side: Logout Button -->
+            <LinearLayout
+                android:id="@+id/btnLogout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/button_background"
+                android:padding="12dp"
+                android:gravity="center"
+                android:clickable="true"
+                android:focusable="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Logout"
+                    android:textColor="#D32F2F"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Patient Name Display -->
         <TextView
+            android:id="@+id/txtPatientName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="QueueFlow"
-            android:textColor="#FFFFFF"
-            android:textSize="28sp"
+            android:text="Hello, Patient Name"
+            android:textColor="#E3F2FD"
+            android:textSize="16sp"
             android:textStyle="bold"
-            android:layout_marginTop="4dp" />
+            android:layout_marginTop="12dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -40,7 +92,7 @@
             android:text="Manage your appointments efficiently"
             android:textColor="#E3F2FD"
             android:textSize="14sp"
-            android:layout_marginTop="8dp" />
+            android:layout_marginTop="4dp" />
 
     </LinearLayout>
 
@@ -72,10 +124,10 @@
             <ImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-
+                android:src="@drawable/doctor"
                 android:contentDescription="View Doctors"
                 app:tint="#1976D2" />
-            <!--android:src="@drawable/ic_doctor"-->
+
 
             <TextView
                 android:layout_width="wrap_content"
@@ -111,10 +163,10 @@
             <ImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-
+                android:src="@drawable/qrcode"
                 android:contentDescription="Scan QR Code"
                 app:tint="#4CAF50" />
-            <!--android:src="@drawable/ic_qr_code"-->
+
 
             <TextView
                 android:layout_width="wrap_content"

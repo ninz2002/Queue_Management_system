@@ -7,17 +7,19 @@
     tools:context=".LoginActivity">
 
     <!-- Logo Section -->
+
+    <!-- Login Form Layout -->
     <LinearLayout
         android:id="@+id/logoSection"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:gravity="center"
+        android:orientation="vertical"
         android:padding="40dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@id/contentSection"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintVertical_chainStyle="packed">
 
         <TextView
@@ -29,115 +31,117 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:text="QueueFlow"
-            android:textSize="32sp"
-            android:textStyle="bold"
             android:textColor="#1976D2"
-            android:layout_marginTop="16dp" />
+            android:textSize="32sp"
+            android:textStyle="bold" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:text="Smart Hospital Queue Management"
-            android:textSize="14sp"
             android:textColor="#757575"
-            android:layout_marginTop="8dp" />
+            android:textSize="14sp" />
 
     </LinearLayout>
 
-    <!-- Login Form Layout -->
+    <!-- Already Logged In Layout -->
+
     <LinearLayout
         android:id="@+id/layoutLoginForm"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="366dp"
+        android:layout_height="359dp"
         android:orientation="vertical"
         android:padding="32dp"
         android:visibility="visible"
-        app:layout_constraintTop_toBottomOf="@id/logoSection"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.355"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/logoSection"
+        app:layout_constraintVertical_bias="0.0"
         app:layout_constraintVertical_chainStyle="packed">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
             android:text="Login"
-            android:textSize="24sp"
-            android:textStyle="bold"
             android:textColor="#212121"
-            android:layout_marginBottom="24dp" />
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Phone Number"
-            android:textSize="14sp"
-            android:textColor="#757575" />
+            android:textColor="#757575"
+            android:textSize="14sp" />
 
         <EditText
             android:id="@+id/etPhoneNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/input_background"
             android:hint="Enter your 10-digit phone number"
             android:inputType="phone"
             android:maxLength="10"
-            android:padding="14dp"
-            android:background="@drawable/input_background"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="24dp" />
+            android:padding="14dp" />
 
         <LinearLayout
             android:id="@+id/btnLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center"
-            android:padding="16dp"
             android:background="@drawable/join_button_background"
             android:clickable="true"
-            android:focusable="true">
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="16dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Login"
+                android:textColor="#FFFFFF"
                 android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="#FFFFFF" />
+                android:textStyle="bold" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:layout_marginTop="16dp"
             android:gravity="center"
-            android:layout_marginTop="16dp">
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Don't have an account? "
-                android:textSize="14sp"
-                android:textColor="#757575" />
+                android:textColor="#757575"
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/txtRegisterHere"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Register Here"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                android:textColor="#1976D2"
                 android:clickable="true"
-                android:focusable="true" />
+                android:focusable="true"
+                android:text="Register Here"
+                android:textColor="#1976D2"
+                android:textSize="14sp"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
     </LinearLayout>
 
-    <!-- Already Logged In Layout -->
     <LinearLayout
         android:id="@+id/layoutAlreadyLoggedIn"
         android:layout_width="0dp"

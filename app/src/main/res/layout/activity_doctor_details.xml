@@ -134,54 +134,42 @@
 
             </LinearLayout>
 
-            <!-- Patient Information Form -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Patient Information"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="#212121"
-                android:layout_marginTop="32dp" />
-
-            <!-- Name Input -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Patient Name"
-                android:textSize="14sp"
-                android:textColor="#757575"
-                android:layout_marginTop="16dp" />
-
-            <EditText
-                android:id="@+id/etPatientName"
+            <!-- Patient Information Display (No Form) -->
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Enter your name"
-                android:padding="14dp"
-                android:background="@drawable/input_background"
-                android:inputType="textPersonName"
-                android:layout_marginTop="8dp" />
+                android:orientation="vertical"
+                android:padding="20dp"
+                android:background="@drawable/info_card_background"
+                android:layout_marginTop="24dp">
 
-            <!-- Phone Input -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Phone Number"
-                android:textSize="14sp"
-                android:textColor="#757575"
-                android:layout_marginTop="16dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Patient Information"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#212121" />
 
-            <EditText
-                android:id="@+id/etPatientPhone"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Enter your phone number"
-                android:padding="14dp"
-                android:background="@drawable/input_background"
-                android:inputType="phone"
-                android:maxLength="10"
-                android:layout_marginTop="8dp" />
+                <TextView
+                    android:id="@+id/txtPatientInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Joining as: Patient Name"
+                    android:textSize="16sp"
+                    android:textColor="#1976D2"
+                    android:textStyle="bold"
+                    android:layout_marginTop="12dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="You will be added to the queue automatically"
+                    android:textSize="12sp"
+                    android:textColor="#757575"
+                    android:layout_marginTop="4dp" />
+
+            </LinearLayout>
 
             <!-- Join Queue Button -->
             <LinearLayout

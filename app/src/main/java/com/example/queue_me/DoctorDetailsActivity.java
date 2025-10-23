@@ -1,10 +1,10 @@
 package com.example.queue_me;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,14 +15,16 @@ public class DoctorDetailsActivity extends AppCompatActivity {
     private TextView txtDepartment;
     private TextView txtQueueCount;
     private TextView txtWaitTime;
-    private EditText etPatientName;
-    private EditText etPatientPhone;
+    private TextView txtPatientInfo;
     private LinearLayout btnJoinQueue;
 
     private int doctorId;
     private String doctorName;
     private String doctorDepartment;
     private int queueCount;
+
+    private int patientId;
+    private String patientName;
 
     private DatabaseHelper databaseHelper;
 
@@ -44,11 +46,13 @@ public class DoctorDetailsActivity extends AppCompatActivity {
         txtDepartment = findViewById(R.id.txtDepartment);
         txtQueueCount = findViewById(R.id.txtQueueCount);
         txtWaitTime = findViewById(R.id.txtWaitTime);
-        etPatientName = findViewById(R.id.etPatientName);
-        etPatientPhone = findViewById(R.id.etPatientPhone);
+        txtPatientInfo = findViewById(R.id.txtPatientInfo);
         btnJoinQueue = findViewById(R.id.btnJoinQueue);
 
-        // Get data from intent
+        // Get patient info from SharedPreferences
+        loadPatientInfo();
+
+        // Get doctor data from intent
         Intent intent = getIntent();
         doctorId = intent.getIntExtra("doctor_id", 0);
         doctorName = intent.getStringExtra("doctor_name");
@@ -67,6 +71,23 @@ public class DoctorDetailsActivity extends AppCompatActivity {
         });
     }
 
+    private void loadPatientInfo() {
+        SharedPreferences prefs = getSharedPreferences("QueueFlowPrefs", MODE_PRIVATE);
+        patientId = prefs.getInt("patient_id", -1);
+        patientName = prefs.getString("patient_name", "");
+
+        // Display patient info (name only, no phone)
+        if (patientId != -1 && !patientName.isEmpty()) {
+            txtPatientInfo.setText("Joining as: " + patientName);
+        } else {
+            // If somehow not logged in, redirect to login
+            Toast.makeText(this, "Please login first", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(DoctorDetailsActivity.this, LoginActivity.class);
+            startActivity(intent);
+            finish();
+        }
+    }
+
     private void displayDoctorDetails() {
         txtDoctorName.setText(doctorName);
         txtDepartment.setText(doctorDepartment);
@@ -78,30 +99,10 @@ public class DoctorDetailsActivity extends AppCompatActivity {
     }
 
     private void joinQueue() {
-        String patientName = etPatientName.getText().toString().trim();
-        String patientPhone = etPatientPhone.getText().toString().trim();
+        // No validation needed - patient info comes from session
 
-        // Validate inputs
-        if (patientName.isEmpty()) {
-            Toast.makeText(this, "Please enter your name", Toast.LENGTH_SHORT).show();
-            etPatientName.requestFocus();
-            return;
-        }
-
-        if (patientPhone.isEmpty()) {
-            Toast.makeText(this, "Please enter your phone number", Toast.LENGTH_SHORT).show();
-            etPatientPhone.requestFocus();
-            return;
-        }
-
-        if (patientPhone.length() != 10) {
-            Toast.makeText(this, "Please enter a valid 10-digit phone number", Toast.LENGTH_SHORT).show();
-            etPatientPhone.requestFocus();
-            return;
-        }
-
-        // Add to queue
-        long result = databaseHelper.addToQueue(doctorId, patientName, patientPhone);
+        // Add to queue using patient_id
+        long result = databaseHelper.addToQueue(doctorId, patientId);
 
         if (result != -1) {
             Toast.makeText(this, "Successfully joined the queue!", Toast.LENGTH_SHORT).show();
